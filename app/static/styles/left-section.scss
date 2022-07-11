@@ -1,0 +1,115 @@
+$color1: green;
+$color2: #f6f6f9;
+$color3: #363949;
+$color4: #7d8da1;
+$color5: rgb(166, 221, 166);
+.left-section{
+    margin-top: 1.2rem;
+    &__header{
+        .logo{
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+            .image{
+                font-size: 2.5rem;
+            }
+            .todo{
+                color: $color1;
+            }
+        }
+        .close{
+            display: none;
+        }
+    }
+    svg{
+        width: 150px;
+        height: 150px;
+        margin-top: 5rem;
+    }
+    .menu{
+        // background-color: red;
+        display: flex;
+        flex-direction: column;
+        height: 64vh;
+        margin-left: -0.5rem;
+        top: 2rem;
+        position: relative;
+        a{
+            display: flex;
+            color: $color4;
+            gap: 1rem;
+            font-size: 15px;
+            margin-left: 1rem;
+            height: 3rem;
+            margin-top: 1rem;
+            transition: all 310ms ease;
+            align-items: center;
+            position: relative;
+            span{
+                font-size: 1.6rem;
+                transition: all 310ms ease;
+            }
+        }
+        a:last-child{
+            position: absolute;
+            bottom: 1.5rem;
+            width: 100%;
+        }
+        a:hover{
+            color: $color1;
+            span{
+                margin-left: 0.5rem;
+            }
+        }
+        .is-active{
+            background-color: $color5;
+            color: $color1;
+            margin-left: 0.5rem;
+            pointer-events: none;
+            span{
+                color: color1;
+                margin-left: calc(0.5rem - 3px);
+            }
+        }
+        .is-active:before{
+            content: '';
+            width: 6px;
+            height: 100%;
+            background-color: $color1;
+        }
+        .username{
+            display: none;
+        }
+    }
+    #navCloseBtn{
+        position: absolute;
+        left: 5rem;
+        font-weight: bold;
+        top: 1rem;
+        display: none;
+        span{
+            font-size: 2.5rem;
+        }
+    }
+    #navOpenBtn{
+        position: absolute;
+        left: 5rem;
+        font-weight: bold;
+        top: 1rem;
+        display: none;
+        span{
+            font-size: 2.5rem;
+        }
+    }
+    #navOpenBtn:hover{
+        cursor: pointer;
+        color: $color1;
+    }
+    #navCloseBtn:hover{
+        cursor: pointer;
+        color: $color1;
+    }
+    button{
+        background-color: transparent;
+    }
+}

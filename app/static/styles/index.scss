@@ -1,4 +1,67 @@
-body{
-    margin:0;
+$color1: green;
+$color2: #f6f6f9;
+$color3: #363949;
+$color4: #7d8da1;
+$color5: rgb(166, 221, 166);
+
+* {
+    margin: 0;
+    outline: 0;
+    border: 0;
     padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 14px;
+}
+
+a {
+    color: $color3;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.88rem;
+    background-color: $color2;
+    overflow-y: hidden;
+}
+
+
+.main-container {
+    display: flex;
+    width: 96%;
+    margin: 0 auto;
+    margin-top: 1.2rem;
+    justify-content: center;
+
+    .home-auth-section {
+        position: relative;
+        width: 70%;
+        margin-top: 15vh;
+        background-color: $color2;
+        box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+        border-radius: 2rem;
+
+        &__logo {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+            position: absolute;
+            margin-top: - 4rem;
+            margin-left: - 0.5rem;
+            font-size: 1.5rem;
+
+            .image {
+                font-size: 4rem;
+            }
+
+            .todo {
+                color: $color1;
+            }
+        }
+    }
 }

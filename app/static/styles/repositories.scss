@@ -1,0 +1,71 @@
+$color1: green;
+.repositories{
+    display: grid;
+    grid-column: 2;
+    margin-top: 5rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 350px;
+    gap: 2rem;
+
+    &__text{
+        position: absolute;
+        top: 1.4rem;
+    }
+    .repository{
+
+        position: relative;
+        background-color: #fff;
+        border-radius: 2rem;
+        box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
+        padding: 1.8rem;
+        transition: all 310ms ease;
+        border: none;
+        .header{
+            text-align: center;
+        }
+        .open{
+            position: absolute;
+            bottom: 0;
+            width: 76%;
+            border: 2px dashed $color1;
+            padding: 0.5rem;
+            border-radius: 2rem;
+            text-align: center;
+        }
+        .open:hover{
+            border: 2px solid $color1;
+        }
+        .body{
+            .content{
+                font-size: 1.1rem;
+                padding: 0.2rem;
+                margin-top: 0.2rem;
+                border-bottom: 1px groove $color1;
+            }
+        }
+
+    }
+    .repository:hover{
+        box-shadow: none;
+    }
+}
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: grid;
+    place-items: center;
+    display: none;
+    .card{
+        background-color: $color1;
+        width: 50rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 2rem;
+        position: relative;
+    }
+}

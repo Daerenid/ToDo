@@ -1,0 +1,131 @@
+$color1: rgb(2, 83, 2);
+$color2: #f6f6f9;
+$color3: #363949;
+$color4: #7d8da1;
+$color5: rgb(38, 238, 38);
+
+.register{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 700px;
+    &__image{
+        position: absolute;
+        width: 500px;
+        top: -30%;
+        svg{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        margin-top: 25%;
+        height: 500px;
+        justify-self: flex-end;
+        align-items: center;
+    }
+}
+.form{ 
+    position: relative;
+    height: 52px;
+    overflow:hidden;
+    margin-bottom: 15px;
+    font-size: 30px;
+    width: 400px;
+    input{
+        width: 100%;
+        height: 100%;
+        color: #595f5e;
+        padding-top: 10px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+    }
+    label{
+        // bottom: 10px;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        pointer-events: none;
+    }
+    label::after{
+        content: "";
+        position: absolute;
+        left: -1px;
+        bottom: -1px;
+        height: 100%;
+        width: 100%;
+        border-bottom: 3px solid $color1;
+        transform: translateX(-100%);
+        transition: all 0.3 ease;
+    }
+    .content-name{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        transition: all 0.3 ease;
+    }
+}
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name{
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: $color1;
+}
+.form input:focus + .label-name::after, 
+.form input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+.bottom{
+    display: flex;
+    span{
+        font-size: 30px;
+        margin-top: 40px;
+    }
+}
+.submit{
+    width: 300px;
+    height: 50px;
+    border: 2px dashed $color1;
+    // background-color: $color5;
+    border-radius: 2rem;
+    text-align: center;
+    justify-content: center;
+    padding: 0.2rem;
+    margin-top: 2rem;
+    input{
+        // font-weight: bold;
+        font-size: 35px;
+        background: none;
+        padding-top: 5px;
+    }
+    span{
+        font-size: 40px;
+    }
+}
+.submit:hover{
+    background-color: $color5;
+    border: 2px solid $color1;
+    cursor: pointer;
+    input{
+        cursor: pointer;
+    }
+
+}
+.login-block{
+    position: relative;
+    font-size: 20px;
+    margin-left: 20px;
+    a{
+        color: $color1;
+        font-weight: bold;
+    }
+}
+.error{
+    color: red;
+    font-size: 20px;
+    margin-top: -13px;
+}

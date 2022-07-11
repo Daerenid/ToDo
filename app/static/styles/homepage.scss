@@ -1,0 +1,45 @@
+$color1: green;
+$color2: #f6f6f9;
+$color3: #363949;
+$color4: #7d8da1;
+$color5: rgb(166, 221, 166);
+
+
+.body {
+    &__top-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__bottom-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        .auth{
+            display: flex;
+            width: 40%;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            &__login{
+                width: 300px;
+                height: 50px;
+                border: 2px dashed $color1;
+                border-radius: 2rem;
+                text-align: center;
+                font-size: 35px;
+                padding: 0.2rem;
+                font-weight: bold;
+                margin-top: 2rem;
+            }
+            &__login:hover{
+                background-color: $color5;
+                border: 2px solid $color1;
+            }
+        }
+    }
+}

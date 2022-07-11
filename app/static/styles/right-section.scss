@@ -1,0 +1,103 @@
+$color1: green;
+$color2: #f6f6f9;
+$color3: #363949;
+$color4: #7d8da1;
+$color5: rgb(166, 221, 166);
+.right-section{
+    &__header{
+        margin-top: 1.4rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        border: none;
+        h2{
+            display: flex;
+        }
+        span{
+            font-size: 3rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            color: $color1;
+        }
+        .username{
+            color: $color1;
+            font-weight: 800;
+            margin-left: 3px;
+        }
+    }
+    .middle-up-text{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+    }
+    .middle{
+        // margin-top: 3rem;
+        background-color: #fff;
+        border-radius: 2rem;
+        height: 20rem;
+        box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
+        border: none;
+        transition: all 310ms ease;
+        &__body{
+            display: flex;
+            justify-content: center;
+            padding-top: 7rem;
+            color: $color4;
+        }
+    }
+    .bottom{
+        background-color: #fff;
+        margin-top: 5rem;
+        height: 23rem;
+        border-radius: 2rem;
+        box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
+        border: none;
+        transition: all 310ms ease;
+        &__header{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding-top: 1rem;
+            span{
+                font-size: 2.5rem;
+                margin: 0.5rem;
+            }
+        }
+        &__body{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            a{
+                border: 1px groove $color1;
+                width: 60%;
+                text-align: center;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                border-radius: 1rem;
+            }
+            a:hover{
+                background-color: $color5;
+            }
+        }
+    }
+    .middle:hover, .bottom:hover{
+        box-shadow: none;
+    }
+    .footer{
+        height: 5rem;
+        margin-top: 2rem;
+        border: 2px dashed $color1;
+        border-radius: 2rem;
+        text-align: center;
+        width: 22rem;
+        font-size: 20px;
+        color: $color3;
+        transition: all 310ms ease;
+    }
+    .footer:hover{
+        border: 2px solid $color1;
+        cursor: pointer;
+    }
+}

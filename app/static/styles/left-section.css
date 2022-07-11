@@ -1,0 +1,143 @@
+.left-section {
+  margin-top: 1.2rem;
+}
+
+.left-section__header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.left-section__header .logo .image {
+  font-size: 2.5rem;
+}
+
+.left-section__header .logo .todo {
+  color: green;
+}
+
+.left-section__header .close {
+  display: none;
+}
+
+.left-section svg {
+  width: 150px;
+  height: 150px;
+  margin-top: 5rem;
+}
+
+.left-section .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 64vh;
+  margin-left: -0.5rem;
+  top: 2rem;
+  position: relative;
+}
+
+.left-section .menu a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #7d8da1;
+  gap: 1rem;
+  font-size: 15px;
+  margin-left: 1rem;
+  height: 3rem;
+  margin-top: 1rem;
+  -webkit-transition: all 310ms ease;
+  transition: all 310ms ease;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.left-section .menu a span {
+  font-size: 1.6rem;
+  -webkit-transition: all 310ms ease;
+  transition: all 310ms ease;
+}
+
+.left-section .menu a:last-child {
+  position: absolute;
+  bottom: 1.5rem;
+  width: 100%;
+}
+
+.left-section .menu a:hover {
+  color: green;
+}
+
+.left-section .menu a:hover span {
+  margin-left: 0.5rem;
+}
+
+.left-section .menu .is-active {
+  background-color: #a6dda6;
+  color: green;
+  margin-left: 0.5rem;
+  pointer-events: none;
+}
+
+.left-section .menu .is-active span {
+  color: color1;
+  margin-left: calc(0.5rem - 3px);
+}
+
+.left-section .menu .is-active:before {
+  content: '';
+  width: 6px;
+  height: 100%;
+  background-color: green;
+}
+
+.left-section .menu .username {
+  display: none;
+}
+
+.left-section #navCloseBtn {
+  position: absolute;
+  left: 5rem;
+  font-weight: bold;
+  top: 1rem;
+  display: none;
+}
+
+.left-section #navCloseBtn span {
+  font-size: 2.5rem;
+}
+
+.left-section #navOpenBtn {
+  position: absolute;
+  left: 5rem;
+  font-weight: bold;
+  top: 1rem;
+  display: none;
+}
+
+.left-section #navOpenBtn span {
+  font-size: 2.5rem;
+}
+
+.left-section #navOpenBtn:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.left-section #navCloseBtn:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.left-section button {
+  background-color: transparent;
+}
+/*# sourceMappingURL=left-section.css.map */

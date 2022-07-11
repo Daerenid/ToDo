@@ -1,0 +1,28 @@
+.middle-section {
+  margin-top: 1.2rem;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+  width: 80%;
+}
+
+.middle-section__body {
+  -webkit-box-shadow: 0rem 2rem 3rem rgba(132, 139, 200, 0.18);
+          box-shadow: 0rem 2rem 3rem rgba(132, 139, 200, 0.18);
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+}
+
+.middle-section__body:after {
+  content: "";
+  position: absolute;
+  opacity: 0.4;
+  width: 90%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/*# sourceMappingURL=content.css.map */

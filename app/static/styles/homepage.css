@@ -1,0 +1,61 @@
+.body__top-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body__bottom-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.body__bottom-section .auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3rem;
+}
+
+.body__bottom-section .auth__login {
+  width: 300px;
+  height: 50px;
+  border: 2px dashed green;
+  border-radius: 2rem;
+  text-align: center;
+  font-size: 35px;
+  padding: 0.2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.body__bottom-section .auth__login:hover {
+  background-color: #a6dda6;
+  border: 2px solid green;
+}
+/*# sourceMappingURL=homepage.css.map */

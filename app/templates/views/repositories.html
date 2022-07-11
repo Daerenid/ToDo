@@ -1,0 +1,43 @@
+{% extends "basic.html" %}
+{% block content %}
+
+<div class="repositories">
+    <div class="repositories__text">
+        <h1>Repositories</h1>
+    </div>
+    {% for repository in repositories %}
+    <a href="{{ url_for('repository', id=repository.id) }}">
+        <div class="repository">
+            <div class="header">
+                <h2>{{ repository.name }}</h2>
+            </div>
+            {% for contents in repository.contents %}
+            <div class="body">
+                <div class="content">
+                    {{ contents.name }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="modal">
+            <div class="card">
+                <div class="info">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores dignissimos animi, vel deleniti recusandae inventore laborum voluptatem quia laudantium aliquam repudiandae, illo delectus laboriosam. Natus ipsum rerum quae dicta quos.
+                </div>
+            </div>
+        </div>
+    </a>
+    
+    {% endfor %}
+</div>
+<!-- <script>
+    const openBtn = document.querySelector('.repository');
+    const closeBtn = document.querySelector('#close');
+    const modal = document.querySelector('.modal');
+
+    openBtn.addEventListener('click', openModal)
+    function openModal(){
+        modal.style.display = 'grid';
+    }
+</script> -->
+{% endblock %}

@@ -1,0 +1,35 @@
+.middle-section {
+  margin-top: 1.2rem;
+  margin-left: 5rem;
+  margin-right: 1.2rem;
+  width: 100%;
+}
+
+.middle-section__body {
+  width: 100%;
+  height: 100%;
+}
+
+.middle-section__body h1:first-child {
+  font-size: 60px;
+  padding-top: 20%;
+}
+
+.middle-section__body h1 {
+  padding-left: 10%;
+}
+
+.middle-section__body:after {
+  content: "";
+  position: absolute;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  left: 0;
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/*# sourceMappingURL=middle-section.css.map */

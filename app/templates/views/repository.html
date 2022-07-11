@@ -1,0 +1,15 @@
+{% extends "basic.html" %}
+
+{% block content %}
+
+<div class="middle-section">
+    <ul class="repository">
+        <li class="repository__section">
+            {% for content in repository.contents %}
+                {{ content.name }}
+            {% endfor %}
+        </li>
+    </ul>
+</div>
+
+{% endblock %}

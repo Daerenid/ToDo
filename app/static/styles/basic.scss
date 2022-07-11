@@ -1,0 +1,179 @@
+$color1: green;
+$color2: #f6f6f9;
+$color3: #363949;
+$color4: #7d8da1;
+$color5: rgb(166, 221, 166);
+
+*{
+    margin: 0;
+    outline: 0;
+    border: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+html{
+    font-size: 14px;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.88rem;
+    background-color: $color2;
+    overflow-x: hidden;
+}
+a{
+    color: $color3;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.9rem;
+}
+h2{
+    font-size: 1.5rem;
+}
+.container{
+    display: flex;
+    margin: 0 auto;
+    width: 96%; 
+    flex-direction: row;
+}
+
+@media  (max-width: 1200px) {
+    body > .container {
+        flex-direction: column;
+        .left-section{
+            display: flex;
+            z-index: 2;
+            position: fixed;
+            top: -1.2rem;
+            left: -1.2rem;
+            width: 100%;
+            padding: 1rem;
+            align-items: center;
+            background-color: #fff;
+            border-bottom: 1px solid $color1;
+            .menu{
+                align-items: center;
+                flex-direction: row;
+                height: 5vh;
+                margin-left: 2rem;
+                top: -0.5rem;
+                width: 100%;
+                .is-active:before{
+                    position: absolute;
+                    background-color: $color1;
+                    width: 94px;
+                    height: 5px;
+                    margin-top: 40px;
+                }
+                a:hover{
+                    margin-bottom: 0.5rem;
+                    span{
+                        margin-left: 0;
+                    }
+                }
+                a{
+                    padding-right: 0.5rem;
+                }
+                a:last-child{
+                    position: relative;
+                    bottom: 0;
+                    justify-content: end;
+                    margin-right: 1rem;
+                }
+                .username{
+                    display: flex;
+                    align-items: center;
+                
+                    h2{
+                        display: flex;
+                    }
+                    span{
+                        font-size: 3rem;
+                        margin-left: 1rem;
+                        margin-right: 1rem;
+                        color: $color1;
+                    }
+                    .nick{
+                        color: $color1;
+                        margin-left: 0.2rem;
+                    }
+                }
+            }
+            svg{
+                display: none;
+            }
+        
+        }
+        .middle-section{
+            margin-top: 5.2rem;
+            .top-boxs{
+                .box:first-child{
+                    grid-row: 1;
+                }
+                .box:last-child{
+                    grid-row: 1;
+                }
+            }
+        }
+        .right-section{
+            &__header{
+                display: none;
+            }
+        }
+        .footer{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content:center;
+            margin-bottom: 3rem;
+        }
+    }
+    
+}
+@media  (max-width: 1630px) {
+    body > .container > .middle-section > .top-boxs > .box:first-child,
+    body > .container > .middle-section > .top-boxs > .box:last-child{
+        grid-row: 1
+    }
+}
+@media  (max-width: 950px){
+    body > .container > .left-section {
+        display: flex;
+        flex-direction: column;
+        .menu{
+            display: none;
+            height: 35vh;
+            top: 2rem;
+            flex-direction: column;
+            a{
+                font-size: 2rem;
+            }
+            a:last-child{
+                position: absolute;
+                top: -6rem;
+                right: 1rem;
+            }
+            .is-active:before{
+                content: '';
+                width: 6px;
+                height: 100%;
+                background-color: $color1;
+                margin-top: 0px;
+            }
+            a:hover{
+                color: $color1;
+                margin-bottom: 0;
+                span{
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+        #navOpenBtn{
+            display: block;
+        }
+    }
+}
