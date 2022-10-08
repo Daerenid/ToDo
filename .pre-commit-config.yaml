@@ -28,7 +28,7 @@ repos:
       - id: pydocstyle
         # Ignore missing docstrings and start multiline
         # docstring summary at second line (D212).
-        args: ["--ignore", "D100,D101,D102,D103,D104,D212"]
+        args: ["--ignore", "D100,D101,D102,D103,D104,D105,D212"]
 
   # In order for mypy to utilize external libraries stubs
   # it is run from current environment with custom hook.
