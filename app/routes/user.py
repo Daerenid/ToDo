@@ -15,7 +15,7 @@ from flask_wtf import FlaskForm
 from wtforms.fields import PasswordField, StringField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
-from app.models import User
+from app.models import User, Repository
 
 bp = Blueprint(
     name="user",
@@ -92,7 +92,14 @@ def search() -> str:
 
     return render_template("user/search.html", search_form=search_form, users=users)
 
-
+@bp.route("/user/<user_id>/<repository_id>/add", methods=["GET", "POST"])
+@login_required
+def add_user_to_repository(user_id: str, repository_id: str) -> str:
+    user = User.get_by_id(user_id)
+    repository = Repository.get_by_id(repository_id)
+    repository.add_user(user)
+    return redirect(url_for("user.show_user", user_id=user.id))
+    
 # @bp.route("user/<user_id>/password", methods=["GET", "POST"])
 # @login_required
 # def change_password(user_id) -> str:

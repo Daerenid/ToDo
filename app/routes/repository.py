@@ -14,7 +14,7 @@ from flask_wtf import FlaskForm
 from wtforms.fields import StringField
 from wtforms.validators import Length
 
-from app.models import Repository
+from app.models import Repository, User
 
 bp = Blueprint(
     name="repository",
@@ -35,37 +35,12 @@ def get_recent_repositories(recent_repositories_ids: list[str]) -> list[Reposito
         if repository.id == recent_id
     ]
 
-
-def rotate_recent_repositories_ids(
-    recent_repositories: list[str], repository_id: str
-) -> list[str]:
-    """
-    Add repository_id to the list of repositories recently visited by current_user.
-    If repository_id is already in the list, move it up the list.
-    """
-    if repository_id not in recent_repositories:
-        if len(recent_repositories) >= RECENT_REPOSITORY_QUEUE_SIZE:
-            del recent_repositories[-1]
-    else:
-        recent_repositories.remove(repository_id)
-
-    recent_repositories.insert(0, repository_id)
-
-    return recent_repositories
-
-
 @bp.route("/repositories")
 @login_required
 def repositories() -> str:
 
-    # Get recent repositories (make sure current_user has access to them)
-    cookie_name = get_recent_repositories_cookie_name()
-    recent_ids = get_recent_repositories_ids(cookie_name)
-    recent_repositories = get_recent_repositories(recent_ids)
-
     return render_template(
         "repository/repositories.html",
-        recent_repositories=recent_repositories,
         owned_repositories=current_user.owned_repositories,
         repositories=current_user.repositories,
     )
@@ -116,7 +91,7 @@ def create() -> Response | str:
 @bp.route("/repository/<repository_id>/edit")
 @login_required
 def edit_repository(repository_id: str) -> str:
-    print("jestem tu")
+
     repository = Repository.get_by_id(repository_id)
     return render_template("repository/edit.html", repository=repository)
 
@@ -124,7 +99,6 @@ def edit_repository(repository_id: str) -> str:
 @bp.route("/repository/<repository_id>")
 @login_required
 def repository(repository_id: str) -> str:
-    print("jestem tu 2")
     repository = Repository.get_by_id(repository_id)
 
     return render_template(
@@ -132,3 +106,14 @@ def repository(repository_id: str) -> str:
         repository=repository,
         participants=repository.participants,
     )
+    
+@bp.route("/repository/<repository_id>/user/delete/<user_id>", methods=["GET", "POST"])
+@login_required
+def delete_user(user_id: str, repository_id: str) -> str:
+    user = User.get_by_id(user_id)
+    repository = Repository.get_by_id(repository_id)
+    if current_user == repository.owner:
+        if user in repository.participants:
+            repository.remove_participant(user)
+    return redirect(url_for("repository.repository", repository_id=repository.id))
+

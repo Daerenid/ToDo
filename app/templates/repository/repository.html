@@ -101,12 +101,19 @@
 
                                 <li class="user">
                                     <a href="{{ url_for('user.show_user', user_id=participant.id) }}">{{ participant.username }}</a>
+                                    {% if current_user.username == repository.owner.username %}
+                                    <a href="{{ url_for('repository.delete_user', user_id=participant.id, repository_id=repository.id) }}">Delete</a>
+
+                                    {% endif %}
                                 </li>
                             {% endfor %}
                         {% else %}
                             <div class="not-found">Users not found</div>
                         {% endif %}
                     </ul>
+                </div>
+                <div class="add-user">
+                    <a href="{{ url_for('user.search') }}">Add user</a>
                 </div>
             </li>
         </ul>

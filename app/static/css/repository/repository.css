@@ -109,17 +109,45 @@ a {
   list-style: none;
   text-align: center;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.repository-info .repository-users .users-list .user {
+.repository-info .repository-users .users-list .user a:last-child{
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: var(--blue);
+  text-align: center;
+  font-size: 1rem;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+.repository-info .repository-users .users-list .user a:hover:last-child{
+  background-color: var(--lightblue);
+  color: var(--dark);
+}
+.repository-info .repository-users .users-list .user{
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid var(--blue);
   font-size: 1.2rem;
+  padding-top: 5px;
 }
 .repository-info .repository-users .users-list .user a:hover {
   color: var(--lightblue);
 }
-
-.repository-info .edit-repository {
+.repository-info .add-user a{
+  padding: 5px;
+  color: var(--dark);
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
   border-radius: 10px;
+  font-size: 1.2rem;
+}
+.repository-info .add-user a:hover{
+  background-color: var(--lightblue);
+}
+.repository-info .edit-repository {
   padding: 10px;
   background-color: var(--blue);
   border-radius: 10px;

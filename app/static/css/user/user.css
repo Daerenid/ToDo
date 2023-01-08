@@ -64,7 +64,9 @@
   width: 70%;
 }
 .show-user .user-card .right-card .right-card-header {
-  padding: 20px;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-bottom: 10px;
   font-size: 1.8rem;
   color: var(--lightblue);
 }
@@ -169,15 +171,31 @@
   border: 1px solid var(--lightblue);
   cursor: pointer;
 }
-.userBtn {
-  padding: 15px;
-  margin: 10px;
-  font-size: 1.3rem;
-  color: var(--dark);
-  background-color: var(--blue);
-  border-radius: 20px;
+.shared-repositories{
+
 }
-.userBtn:hover {
+.shared-repositories .header{
+  font-size: 1.2rem;
+  color: var(--blue);
+  margin-left: 5px;
+}
+.shared-repositories .repositories{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 10px;
+}
+
+.shared-repositories .repositories .repository{
+  padding: 5px;
+  background-color: var(--blue);
+  color: var(--dark);
+  border-radius: 5px;
+  font-size: 1.1rem;
+  margin-right: 5px;
+  display: inline-block;
+}
+.shared-repositories .repositories .repository:hover{
   background-color: var(--lightblue);
 }
 @media screen and (max-width: 700px) {

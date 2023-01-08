@@ -132,11 +132,38 @@
 </div>
 </div>
 {% else %}
-<div class="shared-repositories"></div>
+<div class="shared-repositories">
+    <header class="header">
+        Shared repositories
+    </header>
+    <ul class="repositories">
+    {% for repository in user.repositories %}
+    {% if current_user in repository.participants %}
+        <li>
+            <a class="repository" href="{{ url_for('repository.repository', repository_id=repository.id) }}">
+                {{ repository.name }}
+            </a>
+        </li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+    <header class="header">
+        Add user to your repository
+    </header>
+    <ul class="your-repositories">
+    <ul class="repositories">
+    {% for repository in current_user.repositories %}
+        {% if user not in repository.participants %}
+        <li>
+            <a class="repository" href="{{ url_for('user.add_user_to_repository', user_id=user.id, repository_id=repository.id) }}">
+                {{ repository.name }}
+            </a>
+        </li>
+        {% endif %}
+    {% endfor %}
+
+    </ul>
+</div>
 
 {% endif %}
-
-</div>
-</div>
-</div>
 {% endblock %}

@@ -25,7 +25,6 @@ association_user_repository = db.Table(
     db.Column("repository_id", db.Integer, db.ForeignKey("repository.id")),
 )
 
-
 class User(db.Model, UserMixin):  # type: ignore
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
@@ -140,6 +139,13 @@ class Repository(db.Model):  # type: ignore
         self.contents.append(content)
         db.session.commit()
 
+    def add_user(self, user: object):
+        self.participants.append(user)
+        db.session.commit()
+        
+    def remove_participant(self, user: object) -> None:
+        self.participants.remove(user)
+        db.session.commit()
 
 class Content(db.Model):  # type: ignore
     __tablename__ = "content"
