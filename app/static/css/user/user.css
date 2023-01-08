@@ -1,0 +1,201 @@
+:root {
+  --dark: #222831;
+  --lightdark: #393e46;
+  --blue: #00adb5;
+  --lightblue: #00fff5;
+  --error: rgb(248, 2, 2);
+  --white: #fff;
+}
+
+#background3 {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 353px;
+  right: 30px;
+  z-index: -1;
+}
+.show-user {
+  width: 100%;
+  margin-top: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show-user .user-card {
+  background-color: var(--lightdark);
+  border: 1px solid var(--blue);
+  border-radius: 20px;
+  display: flex;
+  padding: 5px;
+}
+.show-user .user-card .left-card {
+  width: 30%;
+  border-right: 1px solid var(--blue);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.show-user .user-card .left-card .avatar {
+  padding-top: 100px;
+  text-align: center;
+  color: var(--lightblue);
+}
+.show-user .user-card .left-card .avatar span {
+  font-size: 80px;
+}
+.show-user .user-card .left-card .user-info {
+  text-align: center;
+  font-size: 1.3rem;
+}
+.show-user .user-card .left-card .user-info .user-username {
+  color: var(--white);
+  margin: 20px;
+}
+.show-user .user-card .left-card .user-info .user-username h3 {
+  color: var(--blue);
+}
+.show-user .user-card .left-card .user-info .user-joined {
+  color: var(--white);
+}
+.show-user .user-card .left-card .user-info .user-joined h3 {
+  color: var(--blue);
+}
+.show-user .user-card .right-card {
+  width: 70%;
+}
+.show-user .user-card .right-card .right-card-header {
+  padding: 20px;
+  font-size: 1.8rem;
+  color: var(--lightblue);
+}
+.show-user .user-card .right-card .change_profile {
+  width: 100%;
+  height: 85%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 5px;
+}
+.show-user .user-card .right-card .change_profile .change-password {
+  border: 1px solid var(--blue);
+  margin-left: 5px;
+  margin-right: 2.5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--white);
+  padding: 5px;
+}
+.show-user .user-card .right-card .change_profile .change-password input {
+  background-color: var(--dark);
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+  padding: 5px;
+  color: var(--white);
+}
+.show-user .user-card .right-card .change_profile .change-password .back-info {
+  color: var(--lightblue);
+}
+.show-user .user-card .right-card .change_profile .change-password .submit {
+  background-color: var(--blue);
+  color: var(--dark);
+  font-size: bold;
+  margin-top: 10px;
+}
+.show-user
+  .user-card
+  .right-card
+  .change_profile
+  .change-password
+  .submit:hover {
+  background-color: var(--lightblue);
+  cursor: pointer;
+}
+.show-user .user-card .right-card .change_profile .change-email {
+  border: 1px solid var(--blue);
+  margin-right: 5px;
+  margin-left: 2.5px;
+}
+.show-user .user-card .right-card .change_profile .owned-repositories {
+  grid-column: 1 / 3;
+}
+.show-user .user-card .right-card .change_profile .owned-repositories h3 {
+  margin-left: 15px;
+  color: var(--lightblue);
+  font-weight: normal;
+}
+.show-user
+  .user-card
+  .right-card
+  .change_profile
+  .owned-repositories
+  .repositories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  list-style: none;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.show-user
+  .user-card
+  .right-card
+  .change_profile
+  .owned-repositories
+  .repositories
+  .repository {
+  border: 1px solid var(--blue);
+  padding: 10px;
+}
+.show-user
+  .user-card
+  .right-card
+  .change_profile
+  .owned-repositories
+  .repositories
+  a {
+  color: var(--white);
+}
+.show-user
+  .user-card
+  .right-card
+  .change_profile
+  .owned-repositories
+  .repositories
+  .repository:hover {
+  border: 1px solid var(--lightblue);
+  cursor: pointer;
+}
+.userBtn {
+  padding: 15px;
+  margin: 10px;
+  font-size: 1.3rem;
+  color: var(--dark);
+  background-color: var(--blue);
+  border-radius: 20px;
+}
+.userBtn:hover {
+  background-color: var(--lightblue);
+}
+@media screen and (max-width: 700px) {
+  .show-user .user-card {
+    flex-direction: column;
+    margin: 0;
+  }
+  .show-user .user-card .left-card {
+    width: 100%;
+    border-right: none;
+  }
+  .show-user .user-card .right-card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 399px) {
+  .show-user .user-card .right-card .change_profile {
+    display: flex;
+    flex-direction: column;
+  }
+}

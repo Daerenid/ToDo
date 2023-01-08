@@ -1,0 +1,77 @@
+:root {
+  --white: #f6f6f9;
+  --brightgreen: #088022;
+  --black: rgb(15, 15, 15);
+  --lightgreen: #66ff8a;
+  --gray: #2a2a2b;
+  --lightwhite: #fff;
+  --error: rgb(248, 2, 2);
+}
+
+.task-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.task-container-header {
+  position: absolute;
+  font-size: 2.5rem;
+  margin-left: -35%;
+  margin-top: 10px;
+  color: var(--brightgreen);
+}
+.task {
+  width: 50%;
+  margin-top: 55px;
+  border-radius: 10px;
+  background-color: var(--lightwhite);
+  box-shadow: 0 0.2rem 1rem var(--gray);
+  border-radius: 10px;
+  padding: 10px;
+}
+.task .task-header {
+  font-size: 1.3rem;
+  text-align: center;
+  /* font-weight: bold; */
+  margin-bottom: 10px;
+  color: var(--brightgreen);
+}
+.task .task-description {
+  font-size: 1.1rem;
+  text-align: center;
+}
+.task .task-todos .task-todos-header {
+  font-size: 1.3rem;
+  color: var(--brightgreen);
+  /* margin-left: 20px; */
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+.task .task-todos .todo {
+  border: 1px solid black;
+  font-size: 1.1rem;
+  list-style: none;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.task .task-todos .todo .todo-description {
+  min-width: 70%;
+}
+.task .task-todos .todo .todo-menu {
+  width: 70%;
+}
+
+.task .task-todos .todo:last-child {
+  border: 1px dashed var(--brightgreen);
+  text-align: center;
+  color: var(--brightgreen);
+  justify-content: center;
+}
+.task .task-todos .todo:last-child:hover {
+  border: 1px solid var(--brightgreen);
+}

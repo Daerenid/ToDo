@@ -1,0 +1,134 @@
+:root {
+  --dark: #222831;
+  --lightdark: #393e46;
+  --blue: #00adb5;
+  --lightblue: #00fff5;
+  --error: rgb(248, 2, 2);
+  --white: #fff;
+}
+
+#background3 {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 353px;
+  right: 30px;
+  z-index: -1;
+}
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+.add-task {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--blue);
+}
+.add-task:hover {
+  background-color: var(--lightblue);
+}
+.add-task .task-name {
+  color: var(--lightblue);
+  text-align: center;
+  color: var(--dark);
+}
+.repository {
+  display: flex;
+  color: var(--white);
+}
+.repository-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+.repository-content .content {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--lightdark);
+  border-radius: 10px;
+  border: 1px solid var(--blue);
+  transition: box-shadow 0.2s ease-in-out;
+  list-style: none;
+}
+.repository-content .content .content-name {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--lightblue);
+  margin-bottom: 10px;
+}
+.repository-content .content .content-tasks {
+  list-style: none;
+}
+.repository-content .content .content-tasks .task {
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.repository-content .content .content-tasks .task:hover {
+  border: 1px solid var(--lightblue);
+}
+.repository-content .content .content-tasks .task .task-name {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+.repository-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: var(--lightdark);
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+}
+.repository-info .repository-users {
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+.repository-info .repository-users .creator {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.repository-info .repository-users .creator a {
+  color: var(--blue);
+}
+.repository-info .repository-users .creator a:hover {
+  color: var(--lightblue);
+}
+.repository-info .repository-users .info-header {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin-bottom: 5px;
+}
+.repository-info .repository-users .users-list {
+  list-style: none;
+  text-align: center;
+  margin-top: 10px;
+}
+.repository-info .repository-users .users-list .user {
+  border-bottom: 1px solid var(--blue);
+  font-size: 1.2rem;
+}
+.repository-info .repository-users .users-list .user a:hover {
+  color: var(--lightblue);
+}
+
+.repository-info .edit-repository {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--blue);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+.repository-info .edit-repository:hover {
+  background-color: var(--lightblue);
+  cursor: pointer;
+}

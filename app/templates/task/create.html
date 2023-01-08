@@ -1,0 +1,51 @@
+{% extends "basic.html" %}
+
+{% block style %}<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/task/create.css')}}"/>{% endblock %}
+
+{% block content %}
+
+
+    <div class="add-task">
+        <div class="header">Add task to section {{ content.name }}.</div>
+        <form id="create-task-form"
+              method="post"
+              action="{{ url_for('task.add_task', repository_id=repository.id, content_id=content.id) }}"
+              novalidate>
+
+            {{ create_task_form.csrf_token }}
+            <fieldset class="name-input">
+                {{ create_task_form.name.label }}
+                {{ create_task_form.name(size=20, placeholder=" ") }}
+                <ul class="form-errors">
+                    {% if create_task_form.name.errors %}
+                        {% for error in create_task_form.name.errors %}<li>{{ error }}</li>{% endfor %}
+                    {% endif %}
+                </ul>
+            </fieldset>
+
+            <fieldset class="description-input">
+                {{ create_task_form.description.label }}
+                {{ create_task_form.description(size=20, placeholder=" ") }}
+                <ul class="form-errors">
+                    {% if create_task_form.description.errors %}
+                        {% for error in create_task_form.description.errors %}<li>{{ error }}</li>{% endfor %}
+                    {% endif %}
+                </ul>
+            </fieldset>
+
+            <input type="submit" value="Create" class="submit"/>
+            <a href="{{ url_for('repository.repository', repository_id=repository.id) }}">
+                <div class="back">Back</div>
+            </a>
+        </form>
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{{ url_for('static', filename='js/common/form_validation.js') }}"></script>
+{% endblock %}

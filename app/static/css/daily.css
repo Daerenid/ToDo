@@ -1,0 +1,155 @@
+:root {
+  --dark: #222831;
+  --lightdark: #393e46;
+  --blue: #00adb5;
+  --lightblue: #00fff5;
+  --error: rgb(248, 2, 2);
+  --white: #fff;
+}
+content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#background2 {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 300px;
+  left: 150px;
+  z-index: -1;
+}
+.daily {
+  display: flex;
+  width: 50vw;
+  margin-top: 20px;
+  height: 87vh;
+  border-radius: 10px;
+  background-color: var(--lightdark);
+  border: 1px solid var(--blue);
+  flex-direction: column;
+}
+
+.daily .header {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  color: var(--lightblue);
+  padding: 20px;
+}
+
+.daily .body {
+  height: 100%;
+  color: var(--white);
+}
+
+.daily .body .new-daily {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.daily .body .new-daily li {
+  list-style: none;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--lightblue);
+  margin-top: 5px;
+}
+.daily .body .new-daily form input {
+  width: 400px;
+  height: 30px;
+  font-size: 1.1rem;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  padding-left: 5px;
+  color: var(--white);
+  background-color: var(--dark);
+}
+.daily .body .new-daily form input::placeholder {
+  color: var(--white);
+  opacity: 0.8;
+}
+
+.daily .body .new-daily form button {
+  height: 30px;
+  width: 70px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+  color: var(--dark);
+}
+
+.daily .body .new-daily form button:hover {
+  background-color: var(--lightblue);
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.daily .body .daily-schedule {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 20px;
+}
+
+.daily .body .daily-schedule .schedule-item {
+  display: flex;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--blue);
+  /* border-right: 1px solid var(--blue); */
+  margin: 5px;
+  padding: 5px;
+  /* border-radius: 5px; */
+  /* background-color: var(--white); */
+}
+
+.daily .body .daily-schedule .schedule-item input {
+  margin-right: 5px;
+}
+.daily .body .daily-schedule .schedule-item .daily-description-false {
+  width: 80%;
+}
+.daily .body .daily-schedule .schedule-item .daily-description-true {
+  width: 77.2%;
+  text-decoration: line-through;
+  color: var(--blue);
+}
+.daily .body .daily-schedule .schedule-item span {
+  color: var(--blue);
+}
+.daily .body .daily-schedule .schedule-item .daily-menu {
+  margin-left: 50px;
+}
+.daily .body .daily-schedule .schedule-item .daily-menu button {
+  border: 1px solid var(--blue);
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: var(--blue);
+}
+.daily .body .daily-schedule .schedule-item .daily-menu button:hover {
+  background-color: var(--lightblue);
+  cursor: pointer;
+  color: var(--dark);
+}
+@media only screen and (max-width: 1500px) {
+  .daily {
+    width: 70vw;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .daily {
+    width: 95vw;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .daily .body .new-daily form input {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .daily .body .new-daily form input {
+    width: 200px;
+  }
+}

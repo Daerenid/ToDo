@@ -1,0 +1,39 @@
+{% extends "basic.html" %}
+
+{% block style %}<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/task/task.css')}}"/>{% endblock %}
+
+{% block content %}
+
+    <div class="task-container">
+        <div class="task-container-header">Task</div>
+        <div class="task">
+            <div class="task-header">{{ task.name }}</div>
+            <div class="task-description">{{ task.description }}</div>
+            <ul class="task-todos">
+                <div class="task-todos-header">Todos:</div>
+                {% for task in task.todos %}
+                    <li class="todo">
+                        <div class="todo-descritpion">{{ task.description }}</div>
+                        <div class="todo-menu">
+                            <a href="">
+                                <button type="">Complete</button>
+                            </a>
+                            <a href="">
+                                <button type="">Delete</button>
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+                <a href="">
+                    <li class="todo add-todo">Add new ToDo...</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{{ url_for('static', filename='js/common/form_validation.js') }}"></script>
+{% endblock %}

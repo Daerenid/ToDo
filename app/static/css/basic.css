@@ -1,0 +1,22 @@
+:root {
+  --dark: #222831;
+  --lighdark: #393e46;
+  --blue: #00adb5;
+  --lightblue: #00fff5;
+  --error: rgb(248, 2, 2);
+  --white: #fff;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--dark);
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}

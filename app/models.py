@@ -19,7 +19,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 db = SQLAlchemy()
 
-association_user_project = db.Table(
+association_user_repository = db.Table(
     "user_repository",
     db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
     db.Column("repository_id", db.Integer, db.ForeignKey("repository.id")),
@@ -29,15 +29,20 @@ association_user_project = db.Table(
 class User(db.Model, UserMixin):  # type: ignore
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True, nullable=False)
-    email = db.Column(db.String(120), index=True, unique=True, nullable=False)
+    username = db.Column(db.String(6), index=True, unique=True, nullable=False)
+    email = db.Column(db.String(50), index=True, unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(), server_default=func.now())
 
-    # Relations with Project
-    owned_projects = db.relationship("Project", back_populates="owner")
+    # Relation with daily
+    dailys = db.relationship("Daily", backref="User", lazy=True)
+
+    # Relations with repository
+    owned_repositories = db.relationship("Repository", back_populates="owner")
     repositories = db.relationship(
-        "Repository", secondary=association_user_project, back_populates="participants"
+        "Repository",
+        secondary=association_user_repository,
+        back_populates="participants",
     )
 
     @classmethod
@@ -53,16 +58,21 @@ class User(db.Model, UserMixin):  # type: ignore
         return user
 
     @classmethod
+    def get_all_users(cls) -> list:
+        users = User.query.all()
+        return users
+
+    @classmethod
     def get_by_email(cls, email: str) -> Optional[User]:
         return cls.query.filter_by(email=email).first()
 
     @classmethod
     def get_by_id(cls, id: str) -> Optional[User]:
-        return cls.query.get(id)
+        return cls.query.filter_by(id=id).first()
 
     @classmethod
     def get_by_username(cls, username: str) -> Optional[User]:
-        return cls.query.get(username)
+        return cls.query.filter_by(username=username).first()
 
     @classmethod
     def is_email_available(cls, email: str) -> bool:
@@ -71,6 +81,10 @@ class User(db.Model, UserMixin):  # type: ignore
     @classmethod
     def is_username_available(cls, username: str) -> bool:
         return cls.query.filter_by(username=username).first() is None
+
+    def change_password(self, password: str) -> None:
+        self.password == generate_password_hash(password, method="sha256")
+        db.session.commit()
 
     def check_password(self, password: str) -> bool:
         return check_password_hash(self.password, password)
@@ -92,9 +106,9 @@ class Repository(db.Model):  # type: ignore
 
     # Relations with User
     owner_id = db.Column(db.Integer, db.ForeignKey("user.id"), default=None)
-    owner = db.relationship("User", back_populates="owned_projects")
+    owner = db.relationship("User", back_populates="owned_repositories")
     participants = db.relationship(
-        "User", secondary=association_user_project, back_populates="projects"
+        "User", secondary=association_user_repository, back_populates="repositories"
     )
 
     @classmethod
@@ -214,6 +228,40 @@ class Todo(db.Model):  # type: ignore
         return cls.query.filter_by(id=id).delete()
 
 
+class Daily(db.Model):
+    __tablename__ = "daily"
+
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(1048), nullable=False)
+    created_at = db.Column(db.DateTime, index=True, server_default=func.now())
+    completed_at = db.Column(db.DateTime, default=None)
+    status = db.Column(db.Boolean, default=False)
+
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    @classmethod
+    def add(cls, description: str, user_id: int) -> Daily:
+        daily = cls(description=description, user_id=user_id)
+        db.session.add(daily)
+        db.session.commit()
+
+        return daily
+
+    @classmethod
+    def get_by_id(cls, id: str) -> Optional[Daily]:
+        return cls.query.get(id)
+
+    @classmethod
+    def delete_daily(cls, id: int) -> None:
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
+
+    def set_complete(self) -> None:
+        self.status = True
+        self.completed_at = func.now()
+        db.session.commit()
+
+
 def register_db_utils(app: Flask) -> None:
     """Database testing utilities."""
 
@@ -222,9 +270,16 @@ def register_db_utils(app: Flask) -> None:
         """Commit dummy data to the database."""
         with app.app_context():
             # Create Users
-            user_a = User.add("email@email.com", "Patryk", "abcd12345")
-            user_b = User.add("email2@email.com", "Filip", "abcd12345")
-            User.add("email3@email.com", "Konrad", "abcd12345")
+            user_a = User.add("email12@email.com", "Patryk", "abcd12345")
+            user_b = User.add("email21@email.com", "Filip", "abcd12345")
+            user_c = User.add("email223@email.com", "Paweł", "abcd12345")
+            user_d = User.add("email212@email.com", "Natalia", "abcd12345")
+            user_e = User.add("email23123@email.com", "Konrad", "abcd12345")
+
+            # Create daily
+            Daily.add("Lorem Ipsum is simply dummy text of the printing", user_a.id)
+            Daily.add("Lorem Ipsum is simply dummy text of the printing", user_a.id)
+            Daily.add("Lorem Ipsum is simply dummy text of the printing", user_a.id)
 
             # Create Repositories
             repository_a = Repository.add(
@@ -247,7 +302,25 @@ def register_db_utils(app: Flask) -> None:
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                 user_b,
             )
+            Repository.add(
+                "Studia",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                user_a,
+            )
+            Repository.add(
+                "Studia",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                user_a,
+            )
+            Repository.add(
+                "Scrabble",
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                user_a,
+            )
             repository_a.participants.append(user_b)
+            repository_a.participants.append(user_c)
+            repository_a.participants.append(user_d)
+            repository_a.participants.append(user_e)
 
             done = repository_a.contents[0]
             todo = repository_a.contents[1]
@@ -288,18 +361,20 @@ def register_db_utils(app: Flask) -> None:
             )
             todo_f = Todo.add("", task_d.id)
 
-            task_a.append(todo_a)
-            task_a.append(todo_b)
-            task_a.append(todo_c)
-            task_b.append(todo_d)
-            task_b.append(todo_e)
-            task_d.append(todo_f)
+            task_a.todos.append(todo_a)
+            task_a.todos.append(todo_b)
+            task_a.todos.append(todo_c)
+            task_b.todos.append(todo_d)
+            task_b.todos.append(todo_e)
+            task_d.todos.append(todo_f)
 
             db.session.commit()
 
+            print("Success")
+
     @app.cli.command("db-drop")
     def db_drop_data() -> None:
-        """Crop and recreate the database."""
+        """Drop and recreate the database."""
         with app.app_context():
             db.drop_all()
             db.create_all()

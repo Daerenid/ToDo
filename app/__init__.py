@@ -11,6 +11,9 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_session import Session
 
+from app.models import db, register_db_utils
+from app.routes import auth, daily, home, repository, task, user
+
 __all__: list[str] = []
 PARENT_DIR = os.path.dirname(os.path.dirname(__file__))
 load_dotenv(PARENT_DIR)
@@ -40,6 +43,37 @@ def setup_session(app: Flask) -> None:
     Session(app)
 
 
+def setup_database(app: Flask) -> None:
+    """Database connection setup."""
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{app.instance_path}/app.sqlite3"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = app.debug
+
+    if app.debug:
+        register_db_utils(app)
+
+    db.init_app(app)
+
+    migrate = Migrate()
+    migrate.init_app(app, db)
+
+
+def setup_auth(app: Flask) -> None:
+    """User authentication and authorization setup."""
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+    auth.register_login_manager(login_manager)
+
+    app.register_blueprint(auth.bp)
+
+
+def setup_routes(app: Flask) -> None:
+    app.register_blueprint(home.bp)
+    app.register_blueprint(daily.bp)
+    app.register_blueprint(repository.bp)
+    app.register_blueprint(task.bp)
+    app.register_blueprint(user.bp)
+
+
 def create_app() -> Flask:
     """Flask application factory function."""
     app = Flask(
@@ -54,7 +88,10 @@ def create_app() -> Flask:
     if not os.path.exists(app.instance_path):
         os.makedirs(app.instance_path)
 
+    setup_database(app)
     setup_session(app)
+    setup_auth(app)
+    setup_routes(app)
 
     @app.cli.command("run-eventlet")
     def run_eventlet() -> None:
@@ -75,9 +112,5 @@ def create_app() -> Flask:
             print("[INFO] Starting eventlet...")
             eventlet_socket = eventlet.listen((address, port))
             wsgi.server(eventlet_socket, app, debug=False)
-
-    @app.route("/")
-    def home() -> str:
-        return render_template("home.html")
 
     return app

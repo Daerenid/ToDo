@@ -1,0 +1,93 @@
+:root {
+  --white: #f6f6f9;
+  --brightgreen: #088022;
+  --black: rgb(15, 15, 15);
+  --lightgreen: #66ff8a;
+  --gray: #2a2a2b;
+  --lightwhite: #fff;
+  --error: rgb(248, 2, 2);
+}
+.header {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.add-task {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 90vh;
+  flex-direction: column;
+}
+#create-task-form {
+  border-radius: 10px;
+  background-color: var(--lightwhite);
+  box-shadow: 0 0.2rem 1rem var(--gray);
+  border-radius: 10px;
+  padding: 30px;
+}
+.name-input {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  border: none;
+  text-align: center;
+  color: var(--brightgreen);
+}
+.name-input input {
+  padding: 5px;
+  font-size: 1.1rem;
+}
+.description-input {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  border: none;
+  text-align: center;
+  color: var(--brightgreen);
+}
+.description-input input {
+  padding: 5px;
+  font-size: 1.1rem;
+}
+.form-errors {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  list-style: none;
+  color: red;
+  text-align: center;
+}
+.submit {
+  font-size: 1.3rem;
+  width: 100%;
+  border: 1px dashed var(--brightgreen);
+  background: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--brightgreen);
+  margin-bottom: 10px;
+}
+.submit:hover {
+  background-color: var(--brightgreen);
+  color: var(--lightwhite);
+  cursor: pointer;
+}
+.back {
+  font-size: 1.3rem;
+  width: 100%;
+  border: 1px dashed var(--brightgreen);
+  background: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--brightgreen);
+  text-align: center;
+}
+.back a {
+  color: var(--brightgreen);
+  width: 100%;
+}
+.back:hover {
+  background-color: var(--brightgreen);
+  color: var(--lightwhite);
+  cursor: pointer;
+}

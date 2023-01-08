@@ -1,0 +1,97 @@
+:root {
+  --dark: #222831;
+  --lightdark: #393e46;
+  --blue: #00adb5;
+  --lightblue: #00fff5;
+  --error: rgb(248, 2, 2);
+  --white: #fff;
+}
+
+#background1 {
+  width: 30%;
+  height: 30%;
+  position: absolute;
+  top: 270px;
+  right: -70px;
+  z-index: -1;
+}
+
+#repositories-content {
+  width: 100%;
+}
+#repositories-content .repositories-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+#repositories-content .repositories-list .repositories-list-element {
+  padding: 10px;
+  background-color: var(--lightdark);
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+#repositories-content .repositories-list .repositories-list-element:hover {
+  border: 1px solid var(--lightblue);
+}
+#repositories-content
+  .repositories-list
+  .repositories-list-element
+  .repository-name {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--lightblue);
+}
+
+#repositories-content
+  .repositories-list
+  .repositories-list-element:first-child {
+  box-shadow: 0 0.1rem 1rem var(--blue);
+}
+#repositories-content
+  .repositories-list
+  .repositories-list-element:first-child:hover {
+  box-shadow: 0 0.1rem 1rem var(--lightblue);
+}
+#repositories-content .repositories-list .repositories-list-element {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+#repositories-content
+  .repositories-list
+  .repositories-list-element
+  .repository-spacer {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+#repositories-content
+  .repositories-list
+  .repositories-list-element
+  .repository-description {
+  margin-top: 10px;
+  border-top: 1px solid var(--blue);
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+#repositories-content
+  .repositories-list
+  .repositories-list-element
+  .repository-informations {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  color: var(--blue);
+  border-top: 1px solid var(--blue);
+  padding-top: 5px;
+}
+
+#repositories-content
+  .repositories-list
+  .repositories-list-element
+  .repository-informations
+  .repository {
+  display: flex;
+  justify-content: space-between;
+}
