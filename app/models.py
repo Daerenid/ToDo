@@ -166,10 +166,15 @@ class Content(db.Model):  # type: ignore
         db.session.commit()
 
         return content
+    
+    @classmethod
+    def get_by_id(cls, id: str) -> Optional[Content]:
+        return cls.query.get(id)
 
     def add_tasks(self, task: Task) -> None:
         self.tasks.append(task)
         db.session.commit()
+        
 
 
 class Task(db.Model):  # type: ignore
@@ -212,27 +217,43 @@ class Todo(db.Model):  # type: ignore
     created_at = db.Column(db.DateTime, index=True, server_default=func.now())
     completed_at = db.Column(db.DateTime, default=None)
     status = db.Column(db.Boolean, default=False)
-
+    
+    # Relation with user
+    completed_by = db.Column(db.String(1048), default=False)
+    
     # Relation with task
     task_id = db.Column(db.Integer, db.ForeignKey("task.id"))
 
     @classmethod
     def add(cls, description: str, task_id: int) -> Task:
-        task = cls(description=description, task_id=task_id)
+        todo = cls(description=description, task_id=task_id)
 
-        db.session.add(task)
+        db.session.add(todo)
         db.session.commit()
 
-        return task
+        return todo
 
     @classmethod
     def get_by_id(cls, id: str) -> Optional[Todo]:
         return cls.query.get(id)
 
     @classmethod
-    def delete_by_id(cls, id: str) -> boolean:
-        return cls.query.filter_by(id=id).delete()
-
+    def delete_by_id(cls, id: str) -> None:
+        cls.query.filter_by(id=id).delete()
+        db.session.commit()
+    
+    def set_complete(self, user: object) -> None:
+        self.status = True
+        self.completed_at = func.now()
+        self.completed_by = user.username
+        db.session.commit()
+    
+    def set_uncomplete(self) -> None:
+        self.status = False
+        self.completed_at = None
+        self.user = None
+        db.session.commit()
+        
 
 class Daily(db.Model):
     __tablename__ = "daily"

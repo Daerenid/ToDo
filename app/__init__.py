@@ -12,7 +12,7 @@ from flask_migrate import Migrate
 from flask_session import Session
 
 from app.models import db, register_db_utils
-from app.routes import auth, daily, home, repository, task, user
+from app.routes import auth, daily, home, repository, task, user, todo
 
 __all__: list[str] = []
 PARENT_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -72,7 +72,7 @@ def setup_routes(app: Flask) -> None:
     app.register_blueprint(repository.bp)
     app.register_blueprint(task.bp)
     app.register_blueprint(user.bp)
-
+    app.register_blueprint(todo.bp)
 
 def create_app() -> Flask:
     """Flask application factory function."""

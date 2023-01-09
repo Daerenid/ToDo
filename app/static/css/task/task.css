@@ -1,11 +1,19 @@
 :root {
-  --white: #f6f6f9;
-  --brightgreen: #088022;
-  --black: rgb(15, 15, 15);
-  --lightgreen: #66ff8a;
-  --gray: #2a2a2b;
-  --lightwhite: #fff;
+  --dark: #222831;
+  --lightdark: #393e46;
+  --blue: #00adb5;
+  --lightblue: #00fff5;
   --error: rgb(248, 2, 2);
+  --white: #fff;
+}
+
+#background3 {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 353px;
+  right: 30px;
+  z-index: -1;
 }
 
 .task-container {
@@ -14,56 +22,104 @@
   display: flex;
   justify-content: center;
   align-content: center;
-}
-.task-container-header {
-  position: absolute;
-  font-size: 2.5rem;
-  margin-left: -35%;
-  margin-top: 10px;
-  color: var(--brightgreen);
+
 }
 .task {
   width: 50%;
   margin-top: 55px;
   border-radius: 10px;
-  background-color: var(--lightwhite);
-  box-shadow: 0 0.2rem 1rem var(--gray);
-  border-radius: 10px;
   padding: 10px;
+  background-color: var(--lightdark);
+  border: 1px solid var(--blue);
 }
 .task .task-header {
   font-size: 1.3rem;
   text-align: center;
   /* font-weight: bold; */
   margin-bottom: 10px;
-  color: var(--brightgreen);
+  color: var(--blue);
 }
 .task .task-description {
   font-size: 1.1rem;
   text-align: center;
+  color: var(--white);
 }
 .task .task-todos .task-todos-header {
   font-size: 1.3rem;
-  color: var(--brightgreen);
+  color: var(--blue);
   /* margin-left: 20px; */
   margin-top: 30px;
   margin-bottom: 5px;
 }
 .task .task-todos .todo {
-  border: 1px solid black;
+  border: 1px solid var(--blue);
   font-size: 1.1rem;
   list-style: none;
   margin-bottom: 5px;
   padding: 5px;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
 }
-
-.task .task-todos .todo .todo-description {
-  min-width: 70%;
+.task .task-todos .todo-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.task .task-todos .todo-form input{
+  padding: 5px;
+  background-color: var(--dark);
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+  width: 80%;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+.task .task-todos .todo-form input:last-child{
+  background-color: var(--blue);
+  color: var(--dark);
+  width: 20%;
+  margin-top: 5px;
+}
+.task .task-todos .todo-form input:hover:last-child{
+  background-color: var(--lightblue);
+  cursor: pointer;
+}
+.task .task-todos .todo .todo-information{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.task .task-todos .todo .todo-completed{
+  display: flex;
+  justify-content: space-between;
+  color: var(--blue);
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+.task .task-todos .todo .todo-descritpion {
+  color: var(--white);
+}
+.task .task-todos .todo .todo-descritpion-done{
+  text-decoration: line-through;
+  color: var(--blue);
+}
+.task .task-todos .todo .todo-descritpion-done span{
+  font-size: 1rem;
 }
 .task .task-todos .todo .todo-menu {
-  width: 70%;
+  display: flex;
+}
+.task .task-todos .todo .todo-menu a{
+  background-color: var(--blue);
+  border-radius: 10px;
+  padding: 3px;
+  color: var(--dark);
+  margin-right: 5px;
+  height: 25px;
+}
+.task .task-todos .todo .todo-menu a:hover{
+  background-color: var(--lightblue);
 }
 
 .task .task-todos .todo:last-child {
@@ -74,4 +130,20 @@
 }
 .task .task-todos .todo:last-child:hover {
   border: 1px solid var(--brightgreen);
+}
+
+@media screen and (max-width: 1400px){
+  .task {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 900px){
+  .task {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 700px){
+  .task .task-todos .todo .todo-information{
+    flex-direction: column;
+  }
 }
