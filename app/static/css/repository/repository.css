@@ -15,27 +15,17 @@
   right: 30px;
   z-index: -1;
 }
+
 a {
   text-decoration: none;
   color: var(--white);
 }
-.add-task {
-  border-radius: 10px;
-  padding: 10px;
-  background-color: var(--blue);
-}
-.add-task:hover {
-  background-color: var(--lightblue);
-}
-.add-task .task-name {
-  color: var(--lightblue);
-  text-align: center;
-  color: var(--dark);
-}
+
 .repository {
   display: flex;
   color: var(--white);
 }
+
 .repository-content {
   width: 100%;
   display: grid;
@@ -43,6 +33,7 @@ a {
   gap: 2rem;
   padding: 1rem;
 }
+
 .repository-content .content {
   border-radius: 10px;
   padding: 10px;
@@ -52,28 +43,34 @@ a {
   transition: box-shadow 0.2s ease-in-out;
   list-style: none;
 }
+
 .repository-content .content .content-name {
   font-size: 2rem;
   text-align: center;
   color: var(--lightblue);
   margin-bottom: 10px;
 }
+
 .repository-content .content .content-tasks {
   list-style: none;
 }
+
 .repository-content .content .content-tasks .task {
   border: 1px solid var(--blue);
   border-radius: 10px;
   margin-bottom: 5px;
   padding: 5px;
 }
+
 .repository-content .content .content-tasks .task:hover {
   border: 1px solid var(--lightblue);
 }
+
 .repository-content .content .content-tasks .task .task-name {
   font-size: 1.3rem;
   margin-bottom: 5px;
 }
+
 .repository-info {
   display: flex;
   flex-direction: column;
@@ -82,29 +79,35 @@ a {
   border: 1px solid var(--blue);
   border-radius: 10px;
 }
+
 .repository-info .repository-users {
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 1rem;
 }
+
 .repository-info .repository-users .creator {
   font-size: 1.2rem;
   margin-top: 5px;
   margin-bottom: 15px;
   text-align: left;
 }
+
 .repository-info .repository-users .creator a {
   color: var(--blue);
 }
+
 .repository-info .repository-users .creator a:hover {
   color: var(--lightblue);
 }
+
 .repository-info .repository-users .info-header {
   text-align: center;
   font-size: 1.5rem;
   color: var(--blue);
   margin-bottom: 5px;
 }
+
 .repository-info .repository-users .users-list {
   list-style: none;
   text-align: center;
@@ -112,7 +115,8 @@ a {
   display: flex;
   flex-direction: column;
 }
-.repository-info .repository-users .users-list .user a:last-child{
+
+.repository-info .repository-users .users-list .user a:last-child {
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
@@ -122,21 +126,29 @@ a {
   color: var(--dark);
   border: 1px solid var(--dark);
 }
-.repository-info .repository-users .users-list .user a:hover:last-child{
+
+.repository-info .repository-users .users-list .user a:hover:last-child {
   background-color: var(--lightblue);
   color: var(--dark);
 }
-.repository-info .repository-users .users-list .user{
+
+.repository-info .repository-users .users-list .user {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--blue);
   font-size: 1.2rem;
   padding-top: 5px;
 }
+
 .repository-info .repository-users .users-list .user a:hover {
   color: var(--lightblue);
 }
-.repository-info .add-user a{
+
+.repository-info .add-user {
+  margin-bottom: 15px;
+}
+
+.repository-info .add-user a {
   padding: 5px;
   color: var(--dark);
   background-color: var(--blue);
@@ -144,9 +156,11 @@ a {
   border-radius: 10px;
   font-size: 1.2rem;
 }
-.repository-info .add-user a:hover{
+
+.repository-info .add-user a:hover {
   background-color: var(--lightblue);
 }
+
 .repository-info .edit-repository {
   padding: 10px;
   background-color: var(--blue);
@@ -156,7 +170,56 @@ a {
   color: var(--dark);
   border: 1px solid var(--dark);
 }
+
 .repository-info .edit-repository:hover {
   background-color: var(--lightblue);
   cursor: pointer;
+}
+
+.add-task .header {
+  font-size: 1.2rem;
+  color: var(--blue);
+  text-align: center;
+  margin-top: 10px;
+}
+
+#create-task-form {
+  border: 1px solid var(--blue);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#create-task-form input {
+  padding: 5px;
+  font-size: 1.2rem;
+  background-color: var(--dark);
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  color: var(--white);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#create-task-form fieldset {
+  border: none;
+}
+
+#create-task-form .submit {
+  margin-top: 5px;
+  background-color: var(--blue);
+  color: var(--dark);
+}
+
+#create-task-form .submit:hover {
+  background-color: var(--lightblue);
+  cursor: pointer;
+}
+
+.form-errors {
+  list-style: none;
+  color: var(--lightblue);
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

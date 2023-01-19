@@ -19,12 +19,14 @@
 #repositories-content {
   width: 100%;
 }
+
 #repositories-content .repositories-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 1rem;
 }
+
 #repositories-content .repositories-list .repositories-list-element {
   padding: 10px;
   background-color: var(--lightdark);
@@ -32,53 +34,36 @@
   border-radius: 10px;
   transition: box-shadow 0.2s ease-in-out;
 }
+
 #repositories-content .repositories-list .repositories-list-element:hover {
   border: 1px solid var(--lightblue);
 }
-#repositories-content
-  .repositories-list
-  .repositories-list-element
-  .repository-name {
+
+#repositories-content .repositories-list .repositories-list-element .repository-name {
   font-size: 2rem;
   text-align: center;
   color: var(--lightblue);
 }
 
-#repositories-content
-  .repositories-list
-  .repositories-list-element:first-child {
-  box-shadow: 0 0.1rem 1rem var(--blue);
-}
-#repositories-content
-  .repositories-list
-  .repositories-list-element:first-child:hover {
-  box-shadow: 0 0.1rem 1rem var(--lightblue);
-}
 #repositories-content .repositories-list .repositories-list-element {
   display: flex;
   flex-direction: column;
   color: var(--white);
 }
-#repositories-content
-  .repositories-list
-  .repositories-list-element
-  .repository-spacer {
+
+#repositories-content .repositories-list .repositories-list-element .repository-spacer {
   flex-grow: 1;
   flex-shrink: 1;
 }
-#repositories-content
-  .repositories-list
-  .repositories-list-element
-  .repository-description {
+
+#repositories-content .repositories-list .repositories-list-element .repository-description {
   margin-top: 10px;
   border-top: 1px solid var(--blue);
   padding-bottom: 8px;
   padding-top: 8px;
 }
-#repositories-content
-  .repositories-list
-  .repositories-list-element
-  .repository-informations {
+
+#repositories-content .repositories-list .repositories-list-element .repository-informations {
   display: flex;
   flex-direction: column;
   margin-top: 2px;
@@ -87,11 +72,91 @@
   padding-top: 5px;
 }
 
-#repositories-content
-  .repositories-list
-  .repositories-list-element
-  .repository-informations
-  .repository {
+#repositories-content .repositories-list .repositories-list-element .repository-informations .repository {
   display: flex;
   justify-content: space-between;
+}
+
+#create-repository-form {
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background-color: var(--lightdark);
+  text-align: center;
+}
+
+#create-repository-form fieldset {
+  border: none;
+}
+
+#create-repository-form .name-form {
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--blue);
+  color: var(--white);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#create-repository-form .name-form input {
+  width: 90%;
+  border: 1px solid var(--blue);
+  padding: 5px;
+  font-size: 1.3rem;
+  background-color: var(--dark);
+  color: var(--white);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#create-repository-form .description-form {
+  text-align: center;
+  color: var(--white);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+#create-repository-form .description-form textarea {
+  width: 90%;
+  border: 1px solid var(--blue);
+  padding: 5px;
+  font-size: 1.3rem;
+  background-color: var(--dark);
+  color: var(--white);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height: 80%;
+  width: 300px;
+  height: 150px;
+  margin-top: 5px;
+  resize: none;
+}
+
+#create-repository-form .submit {
+  padding: 5px;
+  font-size: 1.3rem;
+  background-color: var(--blue);
+  color: var(--dark);
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 5px;
+}
+
+#create-repository-form .submit:hover {
+  background-color: var(--lightblue);
+  cursor: pointer;
+}
+
+.form-errors {
+  list-style-type: none;
+  color: var(--lightblue);
+  font-size: 0.8rem;
+}
+@media only screen and (max-width: 1300px) {
+  #background1{
+    display: none;
+  }
+  #repositories-content{
+    width: 96%;
+  }
 }

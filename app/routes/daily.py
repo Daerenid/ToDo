@@ -3,15 +3,12 @@ from __future__ import annotations
 from flask import (
     Blueprint,
     Response,
-    make_response,
     redirect,
     render_template,
-    request,
     url_for,
 )
-from flask_login import current_user, login_required
+from flask_login import current_user
 from flask_wtf import FlaskForm
-from sqlalchemy.sql import func
 from wtforms.fields import StringField
 from wtforms.validators import Length
 

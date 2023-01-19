@@ -11,36 +11,7 @@
 
             <div class="title">Create repository</div>
 
-            <form id="create-repository-form"
-                  method="post"
-                  action="{{ url_for('repository.create') }}"
-                  novalidate>
-
-                {{ create_repository_form.csrf_token }}
-
-                <fieldset>
-                    {{ create_repository_form.name(size=20, placeholder=" ") }}
-                    {{ create_repository_form.name.label }}
-                    <ul class="form-errors">
-                        {% if create_repository_form.name.errors %}
-                            {% for error in create_repository_form.name.errors %}<li>{{ error }}</li>{% endfor %}
-                        {% endif %}
-                    </ul>
-                </fieldset>
-
-                <fieldset>
-                    {{ create_repository_form.description(size=20, placeholder=" ") }}
-                    {{ create_repository_form.description.label }}
-                    <ul class="form-errors">
-                        {% if create_repository_form.description.errors %}
-                            {% for error in create_repository_form.description.errors %}<li>{{ error }}</li>{% endfor %}
-                        {% endif %}
-                    </ul>
-                </fieldset>
-
-                <input type="submit" value="Create" />
-
-            </form>
+            
         </div>
     </div>
 {% endblock %}

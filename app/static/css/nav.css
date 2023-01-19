@@ -6,10 +6,12 @@
   --error: rgb(248, 2, 2);
   --white: #fff;
 }
+
 .nav-container {
   width: 100%;
   background-color: var(--dark);
 }
+
 .navbar {
   display: grid;
   grid-template-columns: 0.2fr auto 1fr;
@@ -33,9 +35,11 @@
   align-items: center;
   font-weight: 100;
 }
+
 #navbar-logo .do {
   color: var(--blue);
 }
+
 #navbar-logo svg {
   width: 70px;
   height: 70px;
@@ -50,6 +54,7 @@
   width: 80%;
   justify-self: flex-end;
 }
+
 .nav-links {
   color: var(--blue);
   text-decoration: none;
@@ -59,21 +64,26 @@
   display: flex;
   justify-self: flex-end;
 }
+
 .nav-menu .user .username {
   color: var(--blue);
   margin-left: 2px;
 }
+
 .nav-menu .user .username:hover {
   color: var(--lightblue);
 }
+
 .nav-menu .user span {
   color: var(--blue);
   margin-left: 5px;
 }
+
 .nav-links:hover {
   color: var(--lightblue);
   transition: all 0.2s ease-out;
 }
+
 .nav-links-btn {
   /* color: var(--white); */
   /* background-color: var(--gray); */
@@ -81,6 +91,7 @@
   border-radius: 4px;
   border: solid 1px var(--blue);
 }
+
 .nav-links-btn:hover {
   background-color: transparent;
   color: var(--lightblue);
@@ -89,6 +100,7 @@
   border-radius: 4px;
   transition: all 0.3s ease-out;
 }
+
 .menu-toggle .bar {
   width: 25px;
   height: 3px;
@@ -96,15 +108,18 @@
   transition: all 0.3s ease-in-out;
   background: var(--blue);
 }
+
 @media screen and (max-width: 1200px) {
   .nav-menu {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 900px) {
   .nav-container {
     position: relative;
   }
+
   .nav-menu {
     display: grid;
     background-color: var(--dark);
@@ -117,15 +132,18 @@
     opacity: 0;
     transition: all 0.5s ease;
   }
+
   #navbar-logo {
     margin-left: 20px;
   }
+
   .nav-menu.active {
     background: var(--dark);
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
   }
+
   .nav-links {
     text-align: center;
     line-height: 60px;
@@ -134,14 +152,17 @@
     color: var(--blue);
     /* background-color: var(--lightgreen); */
   }
+
   .nav-links.hover {
     background-color: var(--blue);
     color: var(--white);
     transition: all 0.4s ease-out;
   }
+
   .navbar {
     width: 100%;
   }
+
   .nav-links-btn {
     border: none;
     padding: 0;
@@ -149,6 +170,7 @@
     color: var(--white);
     transition: all 0.4s ease-out;
   }
+
   .nav-links:hover {
     border: none;
     padding: 0;
@@ -157,25 +179,31 @@
     color: var(--dark);
     transition: all 0.4s ease-out;
   }
+
   #mobile-menu {
     position: absolute;
     top: 20%;
     right: 5%;
     transform: translate(5%, 20%);
   }
+
   .menu-toggle .bar {
     display: block;
     cursor: pointer;
   }
+
   .menu-toggle:hover {
     cursor: pointer;
   }
+
   #mobile-menu.is-active .bar:nth-child(2) {
     opacity: 0;
   }
+
   #mobile-menu.is-active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
+
   #mobile-menu.is-active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }

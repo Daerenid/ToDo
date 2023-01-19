@@ -24,6 +24,7 @@
   align-content: center;
 
 }
+
 .task {
   width: 50%;
   margin-top: 55px;
@@ -32,6 +33,7 @@
   background-color: var(--lightdark);
   border: 1px solid var(--blue);
 }
+
 .task .task-header {
   font-size: 1.3rem;
   text-align: center;
@@ -39,11 +41,13 @@
   margin-bottom: 10px;
   color: var(--blue);
 }
+
 .task .task-description {
   font-size: 1.1rem;
   text-align: center;
   color: var(--white);
 }
+
 .task .task-todos .task-todos-header {
   font-size: 1.3rem;
   color: var(--blue);
@@ -51,6 +55,7 @@
   margin-top: 30px;
   margin-bottom: 5px;
 }
+
 .task .task-todos .todo {
   border: 1px solid var(--blue);
   font-size: 1.1rem;
@@ -61,12 +66,14 @@
   display: flex;
   flex-direction: column;
 }
-.task .task-todos .todo-form{
+
+.task .task-todos .todo-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.task .task-todos .todo-form input{
+
+.task .task-todos .todo-form input {
   padding: 5px;
   background-color: var(--dark);
   border: 1px solid var(--blue);
@@ -75,42 +82,51 @@
   font-size: 1.2rem;
   color: var(--white);
 }
-.task .task-todos .todo-form input:last-child{
+
+.task .task-todos .todo-form input:last-child {
   background-color: var(--blue);
   color: var(--dark);
   width: 20%;
   margin-top: 5px;
 }
-.task .task-todos .todo-form input:hover:last-child{
+
+.task .task-todos .todo-form input:hover:last-child {
   background-color: var(--lightblue);
   cursor: pointer;
 }
-.task .task-todos .todo .todo-information{
+
+.task .task-todos .todo .todo-information {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.task .task-todos .todo .todo-completed{
+
+.task .task-todos .todo .todo-completed {
   display: flex;
   justify-content: space-between;
   color: var(--blue);
   margin-top: 5px;
   font-size: 0.8rem;
 }
+
 .task .task-todos .todo .todo-descritpion {
   color: var(--white);
 }
-.task .task-todos .todo .todo-descritpion-done{
+
+.task .task-todos .todo .todo-descritpion-done {
   text-decoration: line-through;
   color: var(--blue);
 }
-.task .task-todos .todo .todo-descritpion-done span{
+
+.task .task-todos .todo .todo-descritpion-done span {
   font-size: 1rem;
 }
+
 .task .task-todos .todo .todo-menu {
   display: flex;
 }
-.task .task-todos .todo .todo-menu a{
+
+.task .task-todos .todo .todo-menu a {
   background-color: var(--blue);
   border-radius: 10px;
   padding: 3px;
@@ -118,7 +134,8 @@
   margin-right: 5px;
   height: 25px;
 }
-.task .task-todos .todo .todo-menu a:hover{
+
+.task .task-todos .todo .todo-menu a:hover {
   background-color: var(--lightblue);
 }
 
@@ -128,22 +145,25 @@
   color: var(--brightgreen);
   justify-content: center;
 }
+
 .task .task-todos .todo:last-child:hover {
   border: 1px solid var(--brightgreen);
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1400px) {
   .task {
     width: 70%;
   }
 }
-@media screen and (max-width: 900px){
+
+@media screen and (max-width: 900px) {
   .task {
     width: 95%;
   }
 }
-@media screen and (max-width: 700px){
-  .task .task-todos .todo .todo-information{
+
+@media screen and (max-width: 700px) {
+  .task .task-todos .todo .todo-information {
     flex-direction: column;
   }
 }

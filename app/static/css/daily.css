@@ -6,11 +6,13 @@
   --error: rgb(248, 2, 2);
   --white: #fff;
 }
+
 content {
   display: flex;
   align-content: center;
   justify-content: center;
 }
+
 #background2 {
   width: 50%;
   height: 50%;
@@ -19,15 +21,16 @@ content {
   left: 150px;
   z-index: -1;
 }
+
 .daily {
   display: flex;
   width: 50vw;
   margin-top: 20px;
-  height: 87vh;
   border-radius: 10px;
   background-color: var(--lightdark);
   border: 1px solid var(--blue);
   flex-direction: column;
+  height: 100%;
 }
 
 .daily .header {
@@ -48,6 +51,7 @@ content {
   align-items: center;
   justify-content: center;
 }
+
 .daily .body .new-daily li {
   list-style: none;
   text-align: center;
@@ -55,6 +59,7 @@ content {
   color: var(--lightblue);
   margin-top: 5px;
 }
+
 .daily .body .new-daily form input {
   width: 400px;
   height: 30px;
@@ -65,6 +70,7 @@ content {
   color: var(--white);
   background-color: var(--dark);
 }
+
 .daily .body .new-daily form input::placeholder {
   color: var(--white);
   opacity: 0.8;
@@ -97,30 +103,32 @@ content {
   display: flex;
   font-size: 1.1rem;
   border-bottom: 1px solid var(--blue);
-  /* border-right: 1px solid var(--blue); */
   margin: 5px;
   padding: 5px;
-  /* border-radius: 5px; */
-  /* background-color: var(--white); */
 }
 
 .daily .body .daily-schedule .schedule-item input {
   margin-right: 5px;
 }
+
 .daily .body .daily-schedule .schedule-item .daily-description-false {
   width: 80%;
 }
+
 .daily .body .daily-schedule .schedule-item .daily-description-true {
   width: 77.2%;
   text-decoration: line-through;
   color: var(--blue);
 }
+
 .daily .body .daily-schedule .schedule-item span {
   color: var(--blue);
 }
+
 .daily .body .daily-schedule .schedule-item .daily-menu {
   margin-left: 50px;
 }
+
 .daily .body .daily-schedule .schedule-item .daily-menu button {
   border: 1px solid var(--blue);
   padding: 4px;
@@ -128,28 +136,80 @@ content {
   font-size: 0.9rem;
   background-color: var(--blue);
 }
+
 .daily .body .daily-schedule .schedule-item .daily-menu button:hover {
   background-color: var(--lightblue);
   cursor: pointer;
   color: var(--dark);
 }
+
 @media only screen and (max-width: 1500px) {
   .daily {
-    width: 70vw;
+    width: 80vw;
   }
 }
-@media only screen and (max-width: 1000px) {
+
+@media only screen and (max-width: 1195px) {
   .daily {
-    width: 95vw;
+    width: 100vw;
   }
 }
+
+@media only screen and (max-width: 950px) {
+  .daily .body .daily-schedule .schedule-item .daily-menu {
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .daily .body .daily-schedule .schedule-item .daily-menu {
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .daily .body .daily-schedule .schedule-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  .daily .body .daily-schedule .schedule-item span {
+    display: none;
+  }
+
+  .daily .body .daily-schedule .schedule-item .daily-menu {
+    margin-top: 5px;
+  }
+
+  .daily .body .daily-schedule .schedule-item .daily-description-false {
+    width: 100%;
+  }
+
+  .daily .body .daily-schedule .schedule-item .daily-description-true {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .daily .body .new-daily form input {
     width: 300px;
   }
 }
-@media only screen and (max-width: 500px) {
+
+@media only screen and (max-width: 380px) {
+  .daily .body .new-daily form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .daily .body .new-daily form input {
     width: 200px;
+  }
+
+  .daily .body .new-daily form button {
+    margin-top: 5px;
   }
 }

@@ -25,10 +25,10 @@
   background-color: var(--lightdark);
   margin-left: 30%;
   border-radius: 20px;
-  max-height: 80vh;
   flex-direction: column;
   border: 1px solid var(--blue);
 }
+
 .search-user input {
   padding: 5px;
   background-color: var(--dark);
@@ -38,20 +38,24 @@
   color: var(--white);
   margin-top: 20px;
 }
+
 .search-user .submit {
   color: var(--dark);
   background-color: var(--blue);
 }
+
 .search-user .submit:hover {
   background-color: var(--lightblue);
   cursor: pointer;
 }
+
 .search-user .error {
   font-size: 1.2rem;
   color: var(--lightblue);
   text-align: center;
   margin-top: 5px;
 }
+
 .search-user .users {
   list-style: none;
   margin-top: 30px;
@@ -59,20 +63,24 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
 .search-user .users .users-user {
   border-bottom: 1px solid var(--blue);
   padding: 5px;
 }
+
 .search-user .users .users-user a {
   color: var(--white);
   font-size: 1.4rem;
 }
+
 @media screen and (max-width: 850px) {
   .search-user {
     width: 60%;
     margin-left: 20%;
   }
 }
+
 @media screen and (max-width: 600px) {
   .search-user {
     width: 100%;

@@ -11,8 +11,9 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_session import Session
 
-from app.models import db, register_db_utils
+from app.models import db
 from app.routes import auth, daily, home, repository, task, user, todo
+from app.exampleDB import register_db_utils
 
 __all__: list[str] = []
 PARENT_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -45,9 +46,10 @@ def setup_session(app: Flask) -> None:
 
 def setup_database(app: Flask) -> None:
     """Database connection setup."""
+    print(app.instance_path)
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{app.instance_path}/app.sqlite3"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = app.debug
-
+    
     if app.debug:
         register_db_utils(app)
 

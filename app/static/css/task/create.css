@@ -7,10 +7,12 @@
   --lightwhite: #fff;
   --error: rgb(248, 2, 2);
 }
+
 .header {
   font-size: 1.6rem;
   margin-bottom: 20px;
 }
+
 .add-task {
   display: flex;
   justify-content: center;
@@ -19,6 +21,7 @@
   height: 90vh;
   flex-direction: column;
 }
+
 #create-task-form {
   border-radius: 10px;
   background-color: var(--lightwhite);
@@ -26,6 +29,7 @@
   border-radius: 10px;
   padding: 30px;
 }
+
 .name-input {
   display: flex;
   flex-direction: column;
@@ -34,10 +38,12 @@
   text-align: center;
   color: var(--brightgreen);
 }
+
 .name-input input {
   padding: 5px;
   font-size: 1.1rem;
 }
+
 .description-input {
   display: flex;
   flex-direction: column;
@@ -46,10 +52,12 @@
   text-align: center;
   color: var(--brightgreen);
 }
+
 .description-input input {
   padding: 5px;
   font-size: 1.1rem;
 }
+
 .form-errors {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -57,6 +65,7 @@
   color: red;
   text-align: center;
 }
+
 .submit {
   font-size: 1.3rem;
   width: 100%;
@@ -67,11 +76,13 @@
   color: var(--brightgreen);
   margin-bottom: 10px;
 }
+
 .submit:hover {
   background-color: var(--brightgreen);
   color: var(--lightwhite);
   cursor: pointer;
 }
+
 .back {
   font-size: 1.3rem;
   width: 100%;
@@ -82,10 +93,12 @@
   color: var(--brightgreen);
   text-align: center;
 }
+
 .back a {
   color: var(--brightgreen);
   width: 100%;
 }
+
 .back:hover {
   background-color: var(--brightgreen);
   color: var(--lightwhite);

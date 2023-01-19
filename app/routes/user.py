@@ -2,20 +2,19 @@ from __future__ import annotations
 
 from flask import (
     Blueprint,
-    Response,
-    make_response,
     redirect,
     render_template,
-    request,
     session,
     url_for,
 )
-from flask_login import current_user, login_required
+from flask_login import login_required
 from flask_wtf import FlaskForm
 from wtforms.fields import PasswordField, StringField
-from wtforms.validators import DataRequired, Email, EqualTo, Length
-
+from wtforms.validators import DataRequired, Email, Length
 from app.models import User, Repository
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from werkzeug.wrappers import Response
 
 bp = Blueprint(
     name="user",
@@ -58,15 +57,11 @@ class ChangePasswordForm(FlaskForm):
     new_password = PasswordField(
         "New password", validators=PASSWORD_VALIDATORS, name="new_password"
     )
-    # def validate(self):
-    #     if not super().validate():
-    #         return False
-    #     if current_user.check_password(self.old_password.data):
 
 
 @bp.route("/user/<user_id>", methods=["GET", "POST"])
 @login_required
-def show_user(user_id: str) -> str:
+def show_user(user_id: str) -> Response | str:
     user = User.get_by_id(user_id)
     password_form = ChangePasswordForm()
     if password_form.validate_on_submit():
@@ -82,7 +77,7 @@ def show_user(user_id: str) -> str:
 
 @bp.route("/user/search", methods=["GET", "POST"])
 @login_required
-def search() -> str:
+def search() -> Response | str:
     search_form = SearchUserForm()
     users = User.get_all_users()
     if search_form.validate_on_submit():
@@ -92,16 +87,11 @@ def search() -> str:
 
     return render_template("user/search.html", search_form=search_form, users=users)
 
+
 @bp.route("/user/<user_id>/<repository_id>/add", methods=["GET", "POST"])
 @login_required
-def add_user_to_repository(user_id: str, repository_id: str) -> str:
+def add_user_to_repository(user_id: str, repository_id: str) -> Response | str:
     user = User.get_by_id(user_id)
     repository = Repository.get_by_id(repository_id)
     repository.add_user(user)
     return redirect(url_for("user.show_user", user_id=user.id))
-    
-# @bp.route("user/<user_id>/password", methods=["GET", "POST"])
-# @login_required
-# def change_password(user_id) -> str:
-#     user = User.get_by_id(user_id)
-#     if user.check_password()

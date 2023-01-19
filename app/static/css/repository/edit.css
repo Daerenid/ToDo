@@ -24,6 +24,7 @@
   background-color: var(--lightdark);
   border-radius: 10px;
 }
+
 .repository .repository-info {
   width: 30%;
   height: 100%;
@@ -33,6 +34,7 @@
   padding: 5px;
   color: var(--white);
 }
+
 .repository .repository-info span {
   font-size: 1.3rem;
   color: var(--blue);

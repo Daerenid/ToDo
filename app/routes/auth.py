@@ -5,11 +5,8 @@ from typing import TYPE_CHECKING, Optional
 import sqlalchemy as sa
 from flask import (
     Blueprint,
-    Flask,
-    g,
     redirect,
     render_template,
-    request,
     session,
     url_for,
 )
@@ -22,12 +19,18 @@ from flask_login import (
 )
 from flask_wtf import FlaskForm
 from wtforms.fields import BooleanField, EmailField, PasswordField, StringField
-from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
+from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 from app.models import User
 
 if TYPE_CHECKING:
     from werkzeug.wrappers import Response
+
+bp = Blueprint(
+    name="auth",
+    import_name=__name__,
+    url_prefix="/auth",
+)
 
 EMAIL_VALIDATORS = [
     DataRequired(message="Email address is required."),
@@ -131,13 +134,6 @@ def register_login_manager(login_manager: LoginManager) -> None:
         return redirect(url_for("auth.login"))
 
 
-bp = Blueprint(
-    name="auth",
-    import_name=__name__,
-    url_prefix="/auth",
-)
-
-
 @bp.route("/login", methods=["GET", "POST"])
 def login() -> Response | str:
     if current_user.is_authenticated:
@@ -145,7 +141,6 @@ def login() -> Response | str:
 
     form = LoginForm()
     if form.validate_on_submit():
-
         user = User.get_by_email(form.email.data)
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for("daily.daily"))
@@ -174,6 +169,6 @@ def register() -> Response | str:
 
 @bp.route("/logout")
 @login_required
-def logout() -> Response:
+def logout() -> Response | str:
     logout_user()
     return redirect(url_for("auth.login"))

@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
 
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, redirect, url_for
 from flask_login import current_user
 
+from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from werkzeug.wrappers import Response
 

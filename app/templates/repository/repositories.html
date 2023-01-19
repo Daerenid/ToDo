@@ -32,32 +32,39 @@
         </svg>
     </div>
     <div id="repositories-content">
-
         <div class="repositories-list-wrapper">
             <div class="repositories-list">
-                <a class="repositories-list-element"
-                   href="{{ url_for('repository.create') }}">
-                    <div class="repository-name">Create new repository</div>
-                    <div class="repository-description"></div>
-                    <div class="repository-spacer"></div>
-                    <div class="repository-informations">
-                        <div class="repository repository-owner">
-                            <div>Owner</div>
-                            <div>...</div>
-                        </div>
-                        <div class="repository repository-created">
-                            <div>Created at</div>
-                            <div>...</div>
-                        </div>
-                        <div class="repository repository-last-modified">
-                            <div>Last modified</div>
-                            <div>...</div>
-                        </div>
-                    </div>
-                </a>
+                <form id="create-repository-form"
+                  method="post"
+                  action="{{ url_for('repository.create') }}"
+                  novalidate>
+
+                {{ create_repository_form.csrf_token }}
+
+                <fieldset class="name-form">
+                    {{ create_repository_form.name.label }} <br>
+                    {{ create_repository_form.name(size=20, placeholder=" ") }}
+                    <ul class="form-errors">
+                        {% if create_repository_form.name.errors %}
+                            {% for error in create_repository_form.name.errors %}<li>{{ error }}</li>{% endfor %}
+                        {% endif %}
+                    </ul>
+                </fieldset>
+
+                <fieldset class="description-form">
+                    {{ create_repository_form.description.label }} <br>
+                    {{ create_repository_form.description(size=20, placeholder=" ") }}
+                    <ul class="form-errors">
+                        {% if create_repository_form.description.errors %}
+                            {% for error in create_repository_form.description.errors %}<li>{{ error }}</li>{% endfor %}
+                        {% endif %}
+                    </ul>
+                </fieldset>
+
+                <input type="submit" value="Create repository" class="submit"/>
+                </form>
                 {% if repositories %}
                     {% for repository in repositories %}
-
                         <a class="repositories-list-element"
                            href="{{ url_for('repository.repository', repository_id=repository.id) }}">
                             <div class="repository-name">{{ repository.name | truncate(64, True) }}</div>
@@ -100,5 +107,5 @@
 {% endblock %}
 
 {% block script %}
-    <script type="module" src="{{ url_for('static', filename='js/repository/browser.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/common/form_validation.js') }}"></script>
 {% endblock %}
