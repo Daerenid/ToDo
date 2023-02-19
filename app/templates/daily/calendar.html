@@ -1,0 +1,31 @@
+{% block content %}
+<h1>Kalendarz</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Pn</th>
+      <th>Wt</th>
+      <th>Śr</th>
+      <th>Cz</th>
+      <th>Pt</th>
+      <th>So</th>
+      <th>Nd</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for week in calendar %}
+    <tr>
+      {% for day in week %}
+      {% if day %}
+      <td {% if day == today %}class="today"{% endif %}>
+        {{ day.day }}
+      </td>
+      {% else %}
+      <td></td>
+      {% endif %}
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
